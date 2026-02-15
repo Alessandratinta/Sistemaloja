@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório do Dia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+  <header class="dashboard-header">
+    <h1>Relatório do Dia</h1>
+    <a href="dashboard.html" class="btn-voltar">Voltar</a>
+  </header>
+
+  <div class="produto-lista">
+    <p id="totalVendas"></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Produto</th>
+          <th>Total</th>
+          <th>Pagamento</th>
+        </tr>
+      </thead>
+      <tbody id="listaRelatorio"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script src="relatorio.js"></script>
+</body>
+</html>

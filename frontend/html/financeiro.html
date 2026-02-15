@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Financeiro - Sistema da Loja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <header class="dashboard-header">
+        <h1>Controle Financeiro</h1>
+        <a href="dashboard.html" class="btn-voltar">Voltar</a>
+    </header>
+
+    <div class="produtos-container">
+
+        <!-- FORMULÁRIO -->
+        <form id="formFinanceiro" class="produto-form">
+            <h2>Novo Lançamento</h2>
+
+            <label>Descrição</label>
+            <input type="text" id="descricao" required>
+
+            <label>Tipo</label>
+            <select id="tipo">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+            </select>
+
+            <label>Valor</label>
+            <input type="number" id="valor" step="0.01" required>
+
+            <label>Data</label>
+            <input type="date" id="data" required>
+
+            <button type="submit">Salvar Lançamento</button>
+        </form>
+
+        <!-- LISTA -->
+        <div class="produto-lista">
+            <h2>Lançamentos</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Descrição</th>
+                        <th>Tipo</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody id="listarFinanceiro">
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="financeiro.js"></script>
+</body>
+</html>

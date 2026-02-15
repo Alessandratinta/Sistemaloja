@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos - Sistema da Loja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <header class="dashboard-header">
+        <h1>Cadastro de Produtos</h1>
+        <a href="dashboard.html" class="btn-voltar">Voltar</a>
+    </header>
+
+    <div class="produtos-container">
+
+        <form id="formProduto" class="produto-form">
+            <h2>Novo Produto</h2>
+
+            <label>Nome do Produto</label>
+            <input type="text" id="nome" required>
+
+            <label>Categoria</label>
+            <input type="text" id="categoria" placeholder="Ex: anel, brinco" required>
+
+            <label>Preço</label>
+            <input type="text" id="preco" placeholder="Ex: 38.90" required>
+
+            <label>Quantidade</label>
+            <input type="number" id="quantidade" required>
+
+            <button type="submit">Salvar Produto</button>
+        </form>
+
+        <div class="produto-lista">
+            <h2>Produtos Cadastrados</h2>
+
+            <!-- FILTRO -->
+            <label>Filtrar por categoria:</label>
+            <select id="filtroCategoria">
+                <option value="todos">Todos</option>
+                <option value="anel">Anel</option>
+                <option value="brinco">Brinco</option>
+            </select>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Qtd</th>
+                    </tr>
+                </thead>
+                <tbody id="listarProdutos">
+                    <!-- Produtos via JS -->
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="produtos.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Clientes - Sistema da Loja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+  <header class="dashboard-header">
+    <h1>Cadastro de Clientes</h1>
+    <a href="dashboard.html" class="btn-voltar">Voltar</a>
+  </header>
+
+  <div class="produtos-container">
+
+    <form id="formCliente" class="produto-form">
+      <h2>Novo Cliente</h2>
+
+      <label>Nome</label>
+      <input type="text" id="nomeCliente">
+
+      <label>Telefone</label>
+      <input type="text" id="telefoneCliente">
+
+      <label>Email</label>
+      <input type="email" id="emailCliente">
+
+      <button type="submit">Salvar Cliente</button>
+    </form>
+
+    <div class="produto-lista">
+      <h2>Clientes Cadastrados</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="listaClientes"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="clientes.js"></script>
+</body>
+</html>

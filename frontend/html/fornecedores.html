@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Fornecedores</title>
+
+  <!-- CSS base do sistema -->
+  <link rel="stylesheet" href="base.css">
+
+  <!-- CSS do módulo -->
+  <link rel="stylesheet" href="modulo.css">
+</head>
+<body>
+
+  <!-- HEADER PADRÃO -->
+  <div class="header">
+    <h1>Cadastro de Fornecedores</h1>
+    <a href="modulos.html">Voltar</a>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <div class="container">
+
+    <div class="card-grid">
+
+      <!-- CARD FORMULÁRIO -->
+      <div class="card">
+        <h2>Novo Fornecedor</h2>
+
+        <form id="formFornecedor">
+          <label>Nome do Fornecedor</label>
+          <input type="text" id="nomeFornecedor" placeholder="Digite o nome" required>
+
+          <button type="submit">Salvar Fornecedor</button>
+        </form>
+      </div>
+
+      <!-- CARD LISTAGEM -->
+      <div class="card">
+        <h2>Fornecedores Cadastrados</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th style="width: 150px;">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="listarFornecedores">
+            <!-- JS preenche -->
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="fornecedores.js"></script>
+</body>
+</html>
