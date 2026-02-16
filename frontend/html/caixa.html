@@ -2,64 +2,89 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Caixa - Sistema da Loja</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Caixa PDV - Sistema da Loja</title>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="pagina-caixa">
 
-<div class="dashboard-container">
-
-  <header class="dashboard-header">
-    <h1>Caixa</h1>
-    <a href="dashboard.html" class="btn-voltar">Voltar</a>
+  <header class="topo">
+    <h1>Caixa Profissional</h1>
+    <a href="dashboard.html" class="btn-voltar">Voltar (Esc)</a>
   </header>
 
-  <form id="formCaixa" class="produto-form">
+  <main class="caixa-container">
 
-    <label>Cliente</label>
-    <input type="text" id="cliente" placeholder="Nome do cliente">
+    <section class="vendas-dia">
+      <div class="header-tabela">
+        <h2>Itens da Venda</h2>
+      </div>
+      <div class="tabela-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Qtd</th>
+              <th>Unitário</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaItens">
+            </tbody>
+        </table>
+      </div>
+    </section>
 
-    <label>Produto</label>
-    <select id="produto">
-      <option value="">Selecione</option>
-    </select>
+    <aside class="caixa-controles">
+      
+      <div class="caixa-form">
+        <h2>Entrada de Itens</h2>
+        
+        <label for="cliente">Cliente</label>
+        <input type="text" id="cliente" placeholder="Consumidor">
 
-    <label>Quantidade</label>
-    <input type="number" id="quantidade" value="1">
+        <label for="produto">Produto</label>
+        <select id="produto" onchange="preencherValor()">
+          <option value="">Selecione um produto</option>
+          </select>
 
-    <label>Valor Unitário</label>
-    <input type="number" id="valor" step="0.01" readonly>
+        <div class="linha-dupla">
+          <div>
+            <label for="quantidade">Qtd</label>
+            <input type="number" id="quantidade" value="1">
+          </div>
+          <div>
+            <label for="valor">Valor Unitário</label>
+            <input type="number" id="valor" step="0.01" readonly>
+          </div>
+        </div>
 
-    <label>Forma de Pagamento</label>
-    <select id="pagamento">
-      <option value="">Selecione</option>
-      <option>Dinheiro</option>
-      <option>PIX</option>
-      <option>Cartão</option>
-    </select>
+        <button type="button" class="btn-add" onclick="adicionarItem()">
+          Adicionar Item (Enter)
+        </button>
+      </div>
 
-    <button type="submit">Finalizar Venda</button>
-  </form>
+      <div class="caixa-resumo">
+        <div class="total-box">
+          <small>TOTAL A PAGAR</small>
+          <h3 id="totalVenda">R$ 0,00</h3>
+        </div>
 
-  <div class="produto-lista">
-    <h2>Vendas do Dia</h2>
+        <label for="formaPagamento">Forma de Pagamento</label>
+        <select id="formaPagamento">
+          <option value="">Selecione...</option>
+          <option value="Dinheiro">Dinheiro</option>
+          <option value="Cartão">Cartão</option>
+          <option value="Pix">Pix</option>
+        </select>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Cliente</th>
-          <th>Produto</th>
-          <th>Qtd</th>
-          <th>Total</th>
-          <th>Pagamento</th>
-        </tr>
-      </thead>
-      <tbody id="listaCaixa"></tbody>
-    </table>
-  </div>
+        <button class="btn-finalizar" onclick="finalizarVenda()">
+          Finalizar Venda (F10)
+        </button>
+      </div>
 
-</div>
+    </aside>
+  </main>
 
-<script src="caixa.js"></script>
+  <script src="../js/caixa.js"></script>
 </body>
 </html>

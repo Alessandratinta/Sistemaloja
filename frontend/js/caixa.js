@@ -1,52 +1,88 @@
-const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+let itensVenda = [];
+let total = 0;
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
 
-const selectProduto = document.getElementById("produto");
-const campoValor = document.getElementById("valor");
+function carregarProdutos() {
+    const select = document.getElementById("produto");
+    produtos.forEach(p => {
+        let opt = document.createElement("option");
+        opt.value = p.nome;
+        opt.textContent = p.nome;
+        select.appendChild(opt);
+    });
+}
 
-selectProduto.innerHTML = '<option value="">Selecione</option>';
+function preencherValor() {
+    const nomeProd = document.getElementById("produto").value;
+    const prod = produtos.find(p => p.nome === nomeProd);
+    
+    if (prod) {
+        document.getElementById("valor").value = parseFloat(prod.preco).toFixed(2);
+        document.getElementById("quantidade").focus();
+    }
+}
 
-produtos.forEach((p, index) => {
-  const option = document.createElement("option");
-  option.value = index;
-  option.textContent = p.nome;
-  selectProduto.appendChild(option);
-});
+function adicionarItem() {
+    const cliente = document.getElementById("cliente").value || "Consumidor";
+    const produto = document.getElementById("produto").value;
+    const qtd = parseFloat(document.getElementById("quantidade").value);
+    const vlr = parseFloat(document.getElementById("valor").value);
 
-selectProduto.addEventListener("change", () => {
-  if (selectProduto.value !== "") {
-    const produtoSelecionado = produtos[selectProduto.value];
-    campoValor.value = produtoSelecionado.preco;
-  } else {
-    campoValor.value = "";
-  }
-});
+    if (!produto || isNaN(qtd) || isNaN(vlr)) {
+        alert("Selecione um produto primeiro!");
+        return;
+    }
 
-document.getElementById("formCaixa").addEventListener("submit", function (event) {
-  event.preventDefault();
+    const subtotal = qtd * vlr;
+    itensVenda.push({ produto, qtd, vlr, subtotal });
+    total += subtotal;
 
-  const cliente = document.getElementById("cliente").value;
-  const quantidade = document.getElementById("quantidade").value;
-  const pagamento = document.getElementById("pagamento").value;
+    renderizarTabela();
+    atualizarTotal();
 
-  if (!cliente || selectProduto.value === "" || !quantidade || !campoValor.value || !pagamento) {
-    alert("Preencha todos os campos");
-    return;
-  }
+    // Limpa apenas o produto para o próximo item, mantém o cliente
+    document.getElementById("produto").value = "";
+    document.getElementById("valor").value = "";
+    document.getElementById("quantidade").value = 1;
+    document.getElementById("produto").focus();
+}
 
-  const produto = produtos[selectProduto.value];
-  const total = quantidade * produto.preco;
+function renderizarTabela() {
+    const tbody = document.getElementById("tabelaItens");
+    tbody.innerHTML = "";
+    itensVenda.forEach(item => {
+        tbody.innerHTML += `
+            <tr>
+                <td>${item.produto}</td>
+                <td>${item.qtd}</td>
+                <td>R$ ${item.vlr.toFixed(2)}</td>
+                <td>R$ ${item.subtotal.toFixed(2)}</td>
+            </tr>`;
+    });
+}
 
-  const tabela = document.getElementById("listaCaixa");
+function atualizarTotal() {
+    document.getElementById("totalVenda").textContent = `R$ ${total.toFixed(2)}`;
+}
 
-  const linha = document.createElement("tr");
-  linha.innerHTML = `
-    <td>${cliente}</td>
-    <td>${produto.nome}</td>
-    <td>${quantidade}</td>
-    <td>R$ ${total.toFixed(2)}</td>
-    <td>${pagamento}</td>
-  `;
+function finalizarVenda() {
+    const pgto = document.getElementById("formaPagamento").value;
+    if (itensVenda.length === 0) return alert("Adicione itens!");
+    if (!pgto) return alert("Selecione a forma de pagamento!");
 
-  tabela.appendChild(linha);
-  document.getElementById("formCaixa").reset();
-});
+    alert(`Venda de R$ ${total.toFixed(2)} no ${pgto} finalizada!`);
+    
+    // Reseta tudo para a próxima venda
+    itensVenda = [];
+    total = 0;
+    document.getElementById("cliente").value = "";
+    document.getElementById("formaPagamento").value = "";
+    renderizarTabela();
+    atualizarTotal();
+}
+
+// Atalhos
+document.addEventListener('keydown', e => { if(e.key === "F10") finalizarVenda(); });
+document.getElementById("quantidade").addEventListener('keypress', e => { if(e.key === 'Enter') adicionarItem(); });
+
+carregarProdutos();

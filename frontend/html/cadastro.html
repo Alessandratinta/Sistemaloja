@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <div class="cadastro-container">
-        <h1>Cadastro</h1>
-        <form onsubmit="cadastrar(event)">
-            <label for="novoUsuario">Novo Usuário</label>
-            <input type="text" id="novoUsuario" placeholder="Digite seu novo usuário">
 
-            <label for="novaSenha">Nova Senha</label>
-            <input type="password" id="novaSenha" placeholder="Digite sua nova senha">
+<div class="login-container">
+    <h1>Cadastro</h1>
 
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
-    <script src="cadastro.js"></script>
+    <form onsubmit="cadastrar(event)">
+        <label for="novoUsuario">Novo Usuário</label>
+        <input type="text" id="novoUsuario" placeholder="Digite seu novo usuário">
+
+        <label for="novaSenha">Nova Senha</label>
+        <input type="password" id="novaSenha" placeholder="Digite sua nova senha">
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <p class="link-cadastro">
+        Já tem conta? <a href="index.html">Voltar para login</a>
+    </p>
+</div>
+
+<script src="../js/cadastro.js"></script>
 </body>
 </html>

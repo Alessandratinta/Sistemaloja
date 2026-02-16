@@ -1,21 +1,33 @@
 function cadastrar(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const novoUsuario = document.getElementById("novoUsuario").value;
-    const novaSenha = document.getElementById("novaSenha").value;
+  const novoUsuario = document.getElementById("novoUsuario").value;
+  const novaSenha = document.getElementById("novaSenha").value;
 
-    // Validar se o usuário já existe
-    const usuarioExistente = usuarios.find(user => user.usuario === novoUsuario);
+  // pega usuários já salvos
+  let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    if (usuarioExistente) {
-        alert("Este usuário já existe. Por favor, escolha outro nome de usuário.");
-        return;
-    }
+  // verifica se já existe
+  const usuarioExistente = usuarios.find(
+    user => user.usuario === novoUsuario
+  );
 
-    // Adicionar o novo usuário ao array
-    usuarios.push({ usuario: novoUsuario, senha: novaSenha });
+  if (usuarioExistente) {
+    alert("Este usuário já existe. Escolha outro.");
+    return;
+  }
 
-    alert("Cadastro realizado com sucesso!");
-    // Redirecionar para a página de login
-    window.location.href = "login.html";
+  // adiciona novo usuário
+  usuarios.push({
+    usuario: novoUsuario,
+    senha: novaSenha
+  });
+
+  // salva no navegador
+  localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+  alert("Cadastro realizado com sucesso!");
+
+  // volta para login
+  window.location.href = "index.html";
 }

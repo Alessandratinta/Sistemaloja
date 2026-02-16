@@ -7,11 +7,8 @@
 }
 
 body {
-  height: 100vh;
-  background-color: #f8f9fa; /* Tom de cinza mais claro e suave */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  background-color: #f8f9fa;
 }
 
 /* Login */
@@ -209,10 +206,11 @@ body {
 .topo {
   background: #0a5299;
   color: #fff;
-  padding: 20px;
+  padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 /* Menu */
@@ -243,4 +241,325 @@ body {
 .card-financeiro th,
 .card-financeiro td {
   color: #000000;
+}
+/* Link de cadastro no login */
+.login-container p {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.login-container p a {
+  color: #1c1c1d;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-container p a:hover {
+  text-decoration: underline;
+}
+/* ===== CAIXA PROFISSIONAL ===== */
+
+.caixa-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.caixa-form,
+.caixa-resumo {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.caixa-form h2,
+.caixa-resumo h2 {
+  margin-bottom: 15px;
+}
+
+.caixa-form label,
+.caixa-resumo label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.caixa-form input,
+.caixa-form select,
+.caixa-resumo select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+}
+
+.btn-add {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background: #0056b3;
+}
+
+.total-box {
+  background: #f2f4f6;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.total-box h3 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.btn-finalizar {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-finalizar:hover {
+  background: #218838;
+}
+
+.vendas-dia {
+  margin: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.vendas-dia table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.vendas-dia th
+.vendas-dia td {
+  border-bottom: 1px solid #dee2e6;
+  padding: 10px;
+  text-align: left;
+}
+/* ===== CAIXA PROFISSIONAL ===== */
+
+.caixa-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.caixa-form,
+.caixa-resumo {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.caixa-form h2,
+.caixa-resumo h2 {
+  margin-bottom: 15px;
+  color: #0b0c0c;
+}
+
+.caixa-form label,
+.caixa-resumo label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.caixa-form input,
+.caixa-form select,
+.caixa-resumo select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+}
+
+.btn-add {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background: #1f2122;
+}
+
+.total-box {
+  background: #f2f4f6;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.total-box h3 {
+  font-size: 32px;
+  color: #007bff;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.btn-finalizar {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-finalizar:hover {
+  background: #218838;
+}
+
+/* tabela */
+
+.vendas-dia {
+  margin: 20px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.vendas-dia h2 {
+  margin-bottom: 12px;
+  color: #045aaf;
+}
+
+.vendas-dia table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vendas-dia thead {
+  background: #f2f4f6;
+}
+
+.vendas-dia th,
+.vendas-dia td {
+  border-bottom: 1px solid #dee2e6;
+  padding: 10px;
+  text-align: left;
+}
+
+.vendas-dia th {
+  font-weight: 600;
+}
+/* ===== CAIXA (visual PDV) ===== */
+
+/* REESCRITA DO CAIXA PARA ESTILO PDV */
+.pagina-caixa {
+    background-color: #1e1e26; /* Fundo escuro para destacar os painéis */
+    overflow: hidden;
+}
+
+.caixa-container {
+    display: grid;
+    grid-template-columns: 1fr 400px; /* Itens na esquerda, comandos na direita */
+    grid-template-rows: calc(100vh - 150px); /* Ocupa a altura quase toda */
+    gap: 15px;
+    padding: 15px;
+}
+
+/* Painel de Lista de Itens (Ocupa a Esquerda) */
+.vendas-dia {
+    margin: 0 !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 4px !important;
+}
+
+.vendas-dia table {
+    flex-grow: 1;
+}
+
+/* Área de Inputs e Resumo (Coluna Direita) */
+.caixa-controles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.caixa-form, .caixa-resumo {
+    width: 100% !important;
+    border-radius: 4px !important;
+}
+
+/* Total com cara de Terminal */
+.total-box {
+    background: #000 !important;
+    color: #00ff00 !important; /* Verde neon */
+    border: 2px solid #333;
+    padding: 20px !important;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.total-box p { color: #888; text-transform: uppercase; font-size: 12px; }
+.total-box h3 { 
+    font-size: 48px !important; 
+    color: #00ff00 !important; 
+    text-shadow: 0 0 10px rgba(0,255,0,0.3);
+}
+
+/* Inputs maiores para agilidade */
+.caixa-form input, .caixa-form select {
+    font-size: 18px;
+    padding: 12px !important;
+    background: #fdfdfd;
+}
+
+.btn-add {
+    background: #0a5299 !important;
+    font-size: 18px;
+}
+.linha-dupla {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+.linha-dupla div { flex: 1; }
+.tabela-scroll {
+    height: 400px;
+    overflow-y: auto;
 }
