@@ -1,0 +1,184 @@
+/* ===== GERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.pagina-caixa {
+  background-color: #1e1e26;
+  overflow: hidden;
+}
+
+/* ===== TOPO ===== */
+.topo {
+  background: #000407;
+  color: #fff;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-voltar {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-voltar:hover {
+  opacity: 0.8;
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+.caixa-container {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  grid-template-rows: calc(100vh - 90px);
+  gap: 15px;
+  padding: 15px;
+}
+
+/* ===== TABELA DE ITENS ===== */
+.vendas-dia {
+  background: #fff;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header-tabela {
+  padding: 15px 20px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.tabela-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.vendas-dia table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vendas-dia th,
+.vendas-dia td {
+  border-bottom: 1px solid #dee2e6;
+  padding: 10px;
+  text-align: left;
+}
+
+.vendas-dia thead {
+  background: #f2f4f6;
+}
+
+/* ===== COLUNA DIREITA ===== */
+.caixa-controles {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.caixa-form,
+.caixa-resumo {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+/* ===== FORM ===== */
+.caixa-form h2,
+.caixa-resumo h2 {
+  margin-bottom: 15px;
+  color: #0b0c0c;
+}
+
+.caixa-form label,
+.caixa-resumo label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+}
+
+.caixa-form input,
+.caixa-form select,
+.caixa-resumo select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.linha-dupla {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.linha-dupla div {
+  flex: 1;
+}
+
+/* ===== BOTÃO ADICIONAR ===== */
+.btn-add {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #0a5299;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.btn-add:hover {
+  background: #083d73;
+}
+
+/* ===== TOTAL (VISUAL PDV) ===== */
+.total-box {
+  background: #000;
+  color: #00ff00;
+  border: 2px solid #333;
+  padding: 20px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 15px;
+}
+
+.total-box small {
+  color: #888;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.total-box h3 {
+  font-size: 48px;
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0,255,0,0.3);
+  margin-top: 5px;
+}
+
+/* ===== FINALIZAR ===== */
+.btn-finalizar {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-finalizar:hover {
+  background: #218838;
+}
