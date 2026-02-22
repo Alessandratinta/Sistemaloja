@@ -1,45 +1,67 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
 body {
-  background: #f8f9fa;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f6f9;
 }
 
-/* TOPO */
+/* ===== TOPO ===== */
 .topo {
-  background: #000407;
+  background: #045aaf;
   color: white;
-  padding: 20px 30px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.btn-voltar {
-  color: white;
+.topo h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+#bemVindo {
+  font-size: 14px;
+}
+
+.btn-sair {
+  background: white;
+  color: #045aaf;
+  padding: 8px 15px;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* MENU CARDS */
+.btn-sair:hover {
+  background: #dcdcdc;
+}
+
+/* ===== MENU ===== */
 .menu {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  display: flex;
+  flex-direction: column; /* 👈 um embaixo do outro */
   gap: 20px;
-  padding: 30px;
+  padding: 40px;
+  max-width: 400px;
+  margin: auto;
 }
 
+/* ===== CARDS ===== */
 .card {
-  background: palegreen;
-  padding: 30px;
+  background: white;
+  padding: 25px;
   text-align: center;
   text-decoration: none;
   color: #045aaf;
   font-size: 18px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }

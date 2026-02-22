@@ -29,5 +29,5 @@ function cadastrar(event) {
   alert("Cadastro realizado com sucesso!");
 
   // volta para login
-  window.location.href = "index.html";
+ window.location.href = "/html/login.html";
 }

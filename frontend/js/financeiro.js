@@ -1,100 +1,51 @@
+let lancamentos = [];
+
 const form = document.getElementById("formFinanceiro");
 const tabela = document.getElementById("listarFinanceiro");
 
-let lancamentos = JSON.parse(localStorage.getItem("lancamentos")) || [];
-let lancamentoEditando = null;
-
-function renderizarFinanceiro(lista) {
-  tabela.innerHTML = "";
-
-  let totalEntradas = 0;
-  let totalSaidas = 0;
-
-  lista.forEach((item, index) => {
-
-    if (item.tipo === "entrada") {
-      totalEntradas += parseFloat(item.valor);
-    } else {
-      totalSaidas += parseFloat(item.valor);
-    }
-
-    const linha = document.createElement("tr");
-    linha.innerHTML = `
-        <td>${item.descricao}</td>
-        <td>${item.tipo}</td>
-        <td>R$ ${parseFloat(item.valor).toFixed(2)}</td>
-        <td>${item.data}</td>
-        <td>
-          <button class="btn-editar" onclick="editarLancamento(${index})">✏️</button>
-          <button class="btn-excluir" onclick="excluirLancamento(${index})">🗑</button>
-        </td>
-    `;
-    tabela.appendChild(linha);
-  });
-
-  atualizarResumo(totalEntradas, totalSaidas);
-}
-
-// atualizar resumo financeiro
-function atualizarResumo(entradas, saidas) {
-  let saldo = entradas - saidas;
-
-  document.getElementById("totalEntradas").textContent = 
-    "R$ " + entradas.toFixed(2);
-
-  document.getElementById("totalSaidas").textContent = 
-    "R$ " + saidas.toFixed(2);
-
-  document.getElementById("saldoAtual").textContent = 
-    "R$ " + saldo.toFixed(2);
-}
-
-// salvar lançamento
 form.addEventListener("submit", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const novoLancamento = {
-    descricao: document.getElementById("descricao").value,
-    tipo: document.getElementById("tipo").value,
-    valor: document.getElementById("valor").value,
-    data: document.getElementById("data").value
-  };
+    const descricao = document.getElementById("descricao").value;
+    const tipo = document.getElementById("tipo").value;
+    const valor = parseFloat(document.getElementById("valor").value);
+    const data = document.getElementById("data").value;
 
-  if (lancamentoEditando === null) {
+    const novoLancamento = { descricao, tipo, valor, data };
+
     lancamentos.push(novoLancamento);
-  } else {
-    lancamentos[lancamentoEditando] = novoLancamento;
-    lancamentoEditando = null;
-    form.querySelector("button[type='submit']").textContent = "Salvar Lançamento";
-  }
 
-  localStorage.setItem("lancamentos", JSON.stringify(lancamentos));
-
-  renderizarFinanceiro(lancamentos);
-  form.reset();
+    form.reset();
+    atualizarTabela();
 });
 
-// editar
-window.editarLancamento = function(index) {
-  const item = lancamentos[index];
+function atualizarTabela() {
+    tabela.innerHTML = "";
 
-  document.getElementById("descricao").value = item.descricao;
-  document.getElementById("tipo").value = item.tipo;
-  document.getElementById("valor").value = item.valor;
-  document.getElementById("data").value = item.data;
+    let totalEntradas = 0;
+    let totalSaidas = 0;
 
-  lancamentoEditando = index;
-  form.querySelector("button[type='submit']").textContent = "Atualizar Lançamento";
-};
+    lancamentos.forEach(l => {
 
-// excluir
-window.excluirLancamento = function(index) {
-  if (confirm("Deseja excluir este lançamento?")) {
-    lancamentos.splice(index, 1);
-    localStorage.setItem("lancamentos", JSON.stringify(lancamentos));
-    renderizarFinanceiro(lancamentos);
-  }
-};
+        if (l.tipo === "entrada") {
+            totalEntradas += l.valor;
+        } else {
+            totalSaidas += l.valor;
+        }
 
-// carregar ao abrir
-renderizarFinanceiro(lancamentos);
+        tabela.innerHTML += `
+            <tr>
+                <td>${l.descricao}</td>
+                <td>${l.tipo}</td>
+                <td>R$ ${l.valor.toFixed(2)}</td>
+                <td>${l.data}</td>
+            </tr>
+        `;
+    });
+
+    const saldo = totalEntradas - totalSaidas;
+
+    document.getElementById("totalEntradas").textContent = totalEntradas.toFixed(2);
+    document.getElementById("totalSaidas").textContent = totalSaidas.toFixed(2);
+    document.getElementById("saldoFinal").textContent = saldo.toFixed(2);
+}

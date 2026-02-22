@@ -1,69 +1,42 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Produtos - Sistema da Loja</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+<header class="topo">
+    <h1>Cadastro de Produtos</h1>
+    <a href="dashboard.html" class="btn-voltar">Voltar</a>
+</header>
 
-<div class="dashboard-container">
+<div class="pagina-produtos">
 
-    <header class="dashboard-header">
-        <h1>Cadastro de Produtos</h1>
-        <a href="dashboard.html" class="btn-voltar">Voltar</a>
-    </header>
+    <!-- CARD FORMULÁRIO -->
+    <div class="card">
+        <h2>Novo Produto</h2>
 
-    <div class="produtos-container">
-
-        <form id="formProduto" class="produto-form">
-            <h2>Novo Produto</h2>
-
-            <label>Nome do Produto</label>
+        <form id="formProduto">
+            <label>Nome</label>
             <input type="text" id="nome" required>
 
-            <label>Categoria</label>
-            <input type="text" id="categoria" placeholder="Ex: anel, brinco" required>
-
             <label>Preço</label>
-            <input type="text" id="preco" placeholder="Ex: 38.90" required>
+            <input type="number" id="preco" step="0.01" required>
 
             <label>Quantidade</label>
             <input type="number" id="quantidade" required>
 
             <button type="submit">Salvar Produto</button>
         </form>
+    </div>
 
-        <div class="produto-lista">
-            <h2>Produtos Cadastrados</h2>
+    <!-- CARD LISTA -->
+    <div class="card">
+        <h2>Lista de Produtos</h2>
 
-            <!-- FILTRO -->
-            <label>Filtrar por categoria:</label>
-            <select id="filtroCategoria">
-                <option value="todos">Todos</option>
-                <option value="anel">Anel</option>
-                <option value="brinco">Brinco</option>
-            </select>
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nome</th>
-                        <th>Categoria</th>
-                        <th>Preço</th>
-                        <th>Qtd</th>
-                    </tr>
-                </thead>
-                <tbody id="listarProdutos">
-                    <!-- Produtos via JS -->
-                </tbody>
-            </table>
-        </div>
-
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                </tr>
+            </thead>
+            <tbody id="listarProdutos"></tbody>
+        </table>
     </div>
 
 </div>
-
-<script src="produtos.js"></script>
-</body>
-</html>

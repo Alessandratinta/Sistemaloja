@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="../css/dashboard.css">
+    <meta charset="UTF-8">
+    <title>Dashboard - Sistema da Loja</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script>
+        // Protege a tela
+        const usuario = JSON.parse(localStorage.getItem('usuario'));
+        if (!usuario) {
+            alert('Você precisa fazer login primeiro!');
+            window.location.href = 'login.html';
+        }
+    </script>
 </head>
 <body>
-
 <header class="topo">
   <h1>Sistema da Loja</h1>
-  <a href="login.html" class="btn-voltar">Voltar</a>
+  <span id="bemVindo"></span>
+  <a href="#" class="btn-voltar" onclick="logout()">Sair</a>
 </header>
 
 <main class="menu">
@@ -20,5 +28,16 @@
   <a href="financeiro.html" class="card">Financeiro</a>
 </main>
 
+<script>
+    // Mostra o usuário logado
+    if (usuario) {
+        document.getElementById('bemVindo').textContent = "Bem-vindo, " + usuario.usuario;
+    }
+
+    function logout() {
+        localStorage.removeItem('usuario');
+        window.location.href = 'login.html';
+    }
+</script>
 </body>
 </html>

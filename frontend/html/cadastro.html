@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="../css/cadastro.css">
+  <meta charset="UTF-8">
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/cadastro.css">
 </head>
 <body>
 
@@ -11,17 +12,15 @@
     <h1>Cadastro</h1>
 
     <form onsubmit="cadastrar(event)">
-        <label for="novoUsuario">Novo Usuário</label>
-        <input type="text" id="novoUsuario" placeholder="Digite seu novo usuário">
-
-        <label for="novaSenha">Nova Senha</label>
-        <input type="password" id="novaSenha" placeholder="Digite sua nova senha">
+        <input type="text" id="novoUsuario" placeholder="Digite seu novo usuário" required>
+        <input type="password" id="novaSenha" placeholder="Digite sua nova senha" required>
 
         <button type="submit">Cadastrar</button>
     </form>
 
-    <p class="link-cadastro">
-        Já tem conta? <a href="index.html">Voltar para login</a>
+    <p>
+        Já tem conta?
+        <a href="/html/login.html">Voltar para login</a>
     </p>
 </div>
 

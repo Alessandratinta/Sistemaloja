@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Financeiro - Sistema da Loja</title>
-   <link rel="stylesheet" href="../css/financeiro.css">
+
+    <!-- CSS PADRÃO DO SISTEMA -->
+    <link rel="stylesheet" href="../css/global.css">
+
+    <!-- CSS ESPECÍFICO DA PÁGINA -->
+    <link rel="stylesheet" href="../css/financeiro.css">
 </head>
 <body>
 
@@ -39,6 +44,11 @@
         </form>
 
         <!-- LISTA -->
+         <div class="resumo-financeiro">
+    <p><strong>Total Entradas:</strong> R$ <span id="totalEntradas">0.00</span></p>
+    <p><strong>Total Saídas:</strong> R$ <span id="totalSaidas">0.00</span></p>
+    <p><strong>Saldo:</strong> R$ <span id="saldoFinal">0.00</span></p>
+</div>
         <div class="produto-lista">
             <h2>Lançamentos</h2>
 
